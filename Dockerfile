@@ -23,6 +23,7 @@ RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libar
     libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl\
     libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
     libcam-pdf-perl libmath-round-perl libtry-tiny-perl \
+    libterm-readline-gnu-perl libimager-qrcode-perl libimager-perl librest-client-perl libipc-run-perl \
     linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-latex-extra texlive-lang-german \
     gettext-base \
     libdatetime-event-cron-perl libexception-class-perl && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -33,7 +34,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
     dpkg-reconfigure --frontend noninteractive tzdata
 
 #ADD KIVITENDO
-ARG BUILD_KIVITENDO_VERSION="3.5.4"
+ARG BUILD_KIVITENDO_VERSION="3.6.1"
 RUN rm -rf /var/www/kivitendo-erp && git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp && \
     cd /var/www/kivitendo-erp && git checkout release-${BUILD_KIVITENDO_VERSION%-*}
 COPY conf/kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf.in
