@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM debian:11
 
 # parameter 
 #ARG BUILD_TZ="Europe/Berlin"
