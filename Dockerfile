@@ -45,7 +45,9 @@ COPY conf/kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf.in
 #RUN service kivitendo-task-server start
 
 #Check Kivitendo installation
-RUN cd /var/www/kivitendo-erp/ && perl /var/www/kivitendo-erp/scripts/installation_check.pl
+RUN cd /var/www/kivitendo-erp/ && \
+    perl /var/www/kivitendo-erp/scripts/installation_check.pl && \
+    perl /var/www/kivitendo-erp/scripts/installation_check.pl -l
 
 # Setup APACHE as ``root`` user
 USER root
