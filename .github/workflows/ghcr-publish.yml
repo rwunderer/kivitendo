@@ -98,6 +98,16 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
+      # Generate Trivy SBOM
+      - name: Run Trivy in GitHub SBOM mode and submit results to Dependency Snapshots
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          format: 'github'
+          output: 'dependency-results.sbom.json'
+          image-ref: '.'
+          github-pat: '${{ secrets.GITHUB_TOKEN }}'
+
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
