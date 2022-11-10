@@ -102,10 +102,9 @@ jobs:
       - name: Run Trivy in GitHub SBOM mode and submit results to Dependency Snapshots
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
           format: 'github'
           output: 'dependency-results.sbom.json'
-          image-ref: '.'
           github-pat: '${{ secrets.SBOM_TOKEN }}'
 
       # Sign the resulting Docker image digest except on PRs.
