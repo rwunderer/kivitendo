@@ -73,6 +73,7 @@ jobs:
         id: upstream
         run: |
           version=$(echo "${{ github.ref_name }}" | sed -n 's/.*\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p')
+          version=${version:-$(sed -n 's/ARG BUILD_KIVITENDO_VERSION="\([0-9.]*\)"/\1/p' Dockerfile)}
           echo "::set-output name=version::$version"
 
       # Build and push Docker image with Buildx (don't push on PR)
