@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:11.7
 
 # parameter 
 #ARG BUILD_TZ="Europe/Berlin"
