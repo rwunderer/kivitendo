@@ -36,7 +36,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
     dpkg-reconfigure --frontend noninteractive tzdata
 
 #ADD KIVITENDO
-ARG BUILD_KIVITENDO_VERSION="3.7.0"
+ARG BUILD_KIVITENDO_VERSION="3.8.0"
 RUN rm -rf /var/www/kivitendo-erp && git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp && \
     cd /var/www/kivitendo-erp && git checkout release-${BUILD_KIVITENDO_VERSION%-*}
 COPY conf/kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf.in
