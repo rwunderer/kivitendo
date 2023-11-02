@@ -20,6 +20,8 @@ cp -a /var/www/kivitendo-erp/.users/.??* /var/www/kivitendo-erp/users/
 # user     = postgres
 # password = changeme
 
+mkdir -p /tmp/socks
+
 [ -d "${APACHE_RUN_DIR}" ] || mkdir -p ${APACHE_RUN_DIR}
 
 exec apache2 -DFOREGROUND
