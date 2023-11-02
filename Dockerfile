@@ -1,4 +1,4 @@
-FROM debian:11.7
+FROM debian:12
 
 # parameter 
 #ARG BUILD_TZ="Europe/Berlin"
@@ -24,6 +24,7 @@ RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libar
     libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
     libcam-pdf-perl libmath-round-perl libtry-tiny-perl \
     libterm-readline-gnu-perl libimager-qrcode-perl libimager-perl librest-client-perl libipc-run-perl \
+    libmail-imapclient-perl libencode-imaputf7-perl \
     linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-lang-german \
     texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
     texlive-latex-extra texlive-lang-german ghostscript latexmk \
@@ -48,8 +49,10 @@ COPY conf/kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf.in
 
 #Check Kivitendo installation
 RUN cd /var/www/kivitendo-erp/ && \
+    envsubst < /var/www/kivitendo-erp/config/kivitendo.conf.in > /var/www/kivitendo-erp/config/kivitendo.conf && \
     perl /var/www/kivitendo-erp/scripts/installation_check.pl && \
-    perl /var/www/kivitendo-erp/scripts/installation_check.pl -l
+    perl /var/www/kivitendo-erp/scripts/installation_check.pl -l && \
+    rm /var/www/kivitendo-erp/config/kivitendo.conf
 
 # Setup APACHE as ``root`` user
 USER root

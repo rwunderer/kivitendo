@@ -1,5 +1,5 @@
 REGISTRY_IMAGE=ghcr.io/rwunderer/kivitendo
-KIVITENDO_VERSION=3.6.1
+KIVITENDO_VERSION=3.8.0
 
 .PHONY:	all
 all: build test
