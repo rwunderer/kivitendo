@@ -95,7 +95,7 @@ jobs:
       # and publish results to github
       - name: Run Trivy vulnerability scanner
         if: ${{ github.event_name != 'pull_request' }}
-        uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
+        uses: aquasecurity/trivy-action@22d2755f774d925b191a185b74e782a4b0638a41 # 0.15.0
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
           format: 'sarif'
@@ -112,7 +112,7 @@ jobs:
       # Generate Trivy SBOM
       - name: Run Trivy in GitHub SBOM mode and submit results to Dependency Snapshots
         if: ${{ github.event_name != 'pull_request' }}
-        uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
+        uses: aquasecurity/trivy-action@22d2755f774d925b191a185b74e782a4b0638a41 # 0.15.0
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
           format: 'github'
