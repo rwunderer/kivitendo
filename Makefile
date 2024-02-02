@@ -8,6 +8,10 @@ all: build test
 build:
 	docker build --build-arg=BUILD_KIVITENDO_VERSION=$(KIVITENDO_VERSION) -t $(REGISTRY_IMAGE) .
 
+.PHONY:	scan
+scan:
+	trivy image --scanners vuln $(REGISTRY_IMAGE) 
+
 .PHONY:	test
 test:
 	docker run --rm -it $(REGISTRY_IMAGE)
@@ -15,3 +19,5 @@ test:
 .PHONY: clean
 clean:
 	docker image rm $(REGISTRY_IMAGE)
+
+# vim: noet
