@@ -51,7 +51,6 @@ COPY conf/kivitendo.conf /var/www/kivitendo-erp/config/kivitendo.conf.in
 RUN cd /var/www/kivitendo-erp/ && \
     envsubst < /var/www/kivitendo-erp/config/kivitendo.conf.in > /var/www/kivitendo-erp/config/kivitendo.conf && \
     perl /var/www/kivitendo-erp/scripts/installation_check.pl && \
-    perl /var/www/kivitendo-erp/scripts/installation_check.pl -l && \
     rm /var/www/kivitendo-erp/config/kivitendo.conf
 
 # Setup APACHE as ``root`` user
