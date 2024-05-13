@@ -3,7 +3,7 @@
   "extends": [
     "github>rwunderer/renovate",
     "github>rwunderer/renovate:cosign-version",
-    "regexManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions"
   ],
   "customManagers": [
     {
