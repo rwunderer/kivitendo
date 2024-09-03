@@ -2,7 +2,7 @@ FROM debian:12.6@sha256:aadf411dc9ed5199bc7dab48b3e6ce18f8bbee4f170127f5ff1b75cd
 
 # parameter 
 #ARG BUILD_TZ="Europe/Berlin"
-ENV locale de_DE
+ENV locale=de_DE
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Berlin
 
@@ -65,16 +65,16 @@ COPY conf/apache-default.conf /etc/apache2/sites-available/000-default.conf
 RUN echo "ServerName localhost" >> /etc/apache2/conf-available/servername.conf && a2enconf servername
 
 # Manually set up the apache environment variables
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /tmp
-ENV APACHE_LOCK_DIR /tmp
-ENV APACHE_PID_FILE /tmp/apache2.pid
-ENV APACHE_RUN_DIR /tmp
-ENV APACHE_SERVERADMIN admin@localhost
-ENV APACHE_SERVERNAME localhost
-ENV APACHE_SERVERALIAS docker.localhost
-ENV APACHE_DOCUMENTROOT /var/www
+ENV APACHE_RUN_USER=www-data
+ENV APACHE_RUN_GROUP=www-data
+ENV APACHE_LOG_DIR=/tmp
+ENV APACHE_LOCK_DIR=/tmp
+ENV APACHE_PID_FILE=/tmp/apache2.pid
+ENV APACHE_RUN_DIR=/tmp
+ENV APACHE_SERVERADMIN=admin@localhost
+ENV APACHE_SERVERNAME=localhost
+ENV APACHE_SERVERALIAS=docker.localhost
+ENV APACHE_DOCUMENTROOT=/var/www
  
 # Prepare Kivitendo writable mounts, ensure executable bit on progs
 RUN mv /var/www/kivitendo-erp/users /var/www/kivitendo-erp/.users && \
