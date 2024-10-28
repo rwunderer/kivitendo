@@ -8,7 +8,7 @@ ENV TZ=Europe/Berlin
 
 #Packages
 RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libarchive-zip-perl libclone-perl \
-    libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl \
+        libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl \
     libemail-address-perl  libemail-mime-perl libfcgi-perl libjson-perl \
     liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl \
     libparams-validate-perl libpdf-api2-perl librose-db-object-perl \
@@ -24,7 +24,7 @@ RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libar
     libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
     libcam-pdf-perl libmath-round-perl libtry-tiny-perl \
     libterm-readline-gnu-perl libimager-qrcode-perl libimager-perl librest-client-perl libipc-run-perl \
-    libmail-imapclient-perl libencode-imaputf7-perl \
+    libmail-imapclient-perl libencode-imaputf7-perl libuuid-tiny-perl \
     linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-lang-german \
     texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
     texlive-latex-extra texlive-lang-german ghostscript latexmk \
