@@ -26,7 +26,7 @@ RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libar
     libterm-readline-gnu-perl libimager-qrcode-perl libimager-perl librest-client-perl libipc-run-perl \
     libmail-imapclient-perl libencode-imaputf7-perl libuuid-tiny-perl \
     linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-lang-german \
-    texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
+    texlive-lang-greek texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
     texlive-latex-extra texlive-lang-german ghostscript latexmk \
     gettext-base tzdata \
     libdatetime-event-cron-perl libexception-class-perl && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
