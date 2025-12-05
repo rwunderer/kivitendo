@@ -7,29 +7,33 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Europe/Berlin
 
 #Packages
-RUN apt-get -qq update && apt-get -y upgrade && apt-get install -y apache2 libarchive-zip-perl libclone-perl \
+RUN apt-get -qq update && apt-get -y upgrade && \
+    apt-get install -y apache2 libarchive-zip-perl libclone-perl \
         libconfig-std-perl libdatetime-perl libdbd-pg-perl libdbi-perl \
-    libemail-address-perl  libemail-mime-perl libfcgi-perl libjson-perl \
-    liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl \
-    libparams-validate-perl libpdf-api2-perl librose-db-object-perl \
-    librose-db-perl librose-object-perl libsort-naturally-perl \
-    libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
-    libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
-    libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
-    libfile-copy-recursive-perl libalgorithm-checkdigits-perl \
-    libcrypt-pbkdf2-perl git libcgi-pm-perl libtext-unidecode-perl libwww-perl\
-    aqbanking-tools poppler-utils libhtml-restrict-perl\
-    libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl\
-    libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl\
-    libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
-    libcam-pdf-perl libmath-round-perl libtry-tiny-perl \
-    libterm-readline-gnu-perl libimager-qrcode-perl libimager-perl librest-client-perl libipc-run-perl \
-    libmail-imapclient-perl libencode-imaputf7-perl libuuid-tiny-perl \
-    linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-lang-german \
-    texlive-lang-greek texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
-    texlive-latex-extra texlive-lang-german ghostscript latexmk \
-    gettext-base tzdata \
-    libdatetime-event-cron-perl libexception-class-perl && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        libemail-address-perl  libemail-mime-perl libfcgi-perl libjson-perl \
+        liblist-moreutils-perl libnet-smtp-ssl-perl libnet-sslglue-perl \
+        libparams-validate-perl libpdf-api2-perl librose-db-object-perl \
+        librose-db-perl librose-object-perl libsort-naturally-perl \
+        libstring-shellquote-perl libtemplate-perl libtext-csv-xs-perl \
+        libtext-iconv-perl liburi-perl libxml-writer-perl libyaml-perl \
+        libimage-info-perl libgd-gd2-perl libapache2-mod-fcgid \
+        libfile-copy-recursive-perl libalgorithm-checkdigits-perl \
+        libcrypt-pbkdf2-perl git libcgi-pm-perl libtext-unidecode-perl libwww-perl \
+        poppler-utils libhtml-restrict-perl\
+        libdatetime-set-perl libset-infinite-perl liblist-utilsby-perl \
+        libdaemon-generic-perl libfile-flock-perl libfile-slurp-perl \
+        libfile-mimeinfo-perl libpbkdf2-tiny-perl libregexp-ipv6-perl \
+        libdatetime-event-cron-perl libexception-class-perl \
+        libxml-libxml-perl libtry-tiny-perl libmath-round-perl \
+        libimager-perl libimager-qrcode-perl librest-client-perl libipc-run-perl \
+        libencode-imaputf7-perl libmail-imapclient-perl libuuid-tiny-perl \
+        libcryptx-perl && \
+    apt-get install -y texlive-base-bin texlive-latex-recommended texlive-fonts-recommended \
+        texlive-latex-extra texlive-lang-german ghostscript latexmk && \
+    apt-get install -y aqbanking-tools libcam-pdf-perl libterm-readline-gnu-perl \
+        linuxdoc-tools-latex preview-latex-style texlive-latex-base texlive-lang-german \
+        texlive-lang-greek gettext-base tzdata && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # set timezone
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
