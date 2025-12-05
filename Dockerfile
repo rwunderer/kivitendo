@@ -42,7 +42,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
 
 # ADD KIVITENDO
 # renovate: datasource=github-tags depName=kivitendo lookupName=kivitendo/kivitendo-erp extractVersion=^release-(?<version>.*)$
-ARG BUILD_KIVITENDO_VERSION="3.9.2"
+ARG BUILD_KIVITENDO_VERSION="4.0.0"
 
 RUN rm -rf /var/www/kivitendo-erp && git clone https://github.com/kivitendo/kivitendo-erp.git /var/www/kivitendo-erp && \
     cd /var/www/kivitendo-erp && git checkout release-${BUILD_KIVITENDO_VERSION%-*}
