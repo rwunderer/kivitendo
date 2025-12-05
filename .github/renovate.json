@@ -5,24 +5,13 @@
     "github>rwunderer/renovate:cosign-version",
     "customManagers:dockerfileVersions"
   ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/).github/workflows/.*\\.yml$/"
-      ],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>.*?) (?:registryUrl=(?<registryUrl>.+?))?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\n.*cosign-release= ?(?<currentValue>.*)"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    }
-  ],
   "packageRules": [
     {
-      "matchPackageNames": [
-        "cosign"
+      "matchDepNames": [
+        "kivitendo"
       ],
-      "automerge": true
+      "automerge": true,
+      "automergeType": "pr"
     }
   ]
 }
