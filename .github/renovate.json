@@ -3,14 +3,14 @@
   "extends": [
     "github>rwunderer/renovate",
     "github>rwunderer/renovate:cosign-version",
-    "customManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions",
+    ":automergeMinor"
   ],
   "packageRules": [
     {
       "matchDepNames": [
         "kivitendo"
       ],
-      "automerge": true,
       "automergeType": "pr"
     }
   ]
